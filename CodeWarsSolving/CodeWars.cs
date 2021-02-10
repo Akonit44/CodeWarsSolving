@@ -102,7 +102,7 @@ namespace Solving
                     {
                         toShow = AddElemToMass(toShow, arr[j]);
                     }
-                    MySharp.showMass(toShow);
+                   // MySharp.showMass(toShow);
                 }
             }
             return toShow;
@@ -116,6 +116,29 @@ namespace Solving
                 expanded[i] = massToExpand[i];
             }
             return expanded;
+        }
+
+        public static string[] escape(int[,] carpark)
+        {
+            Console.WriteLine($"index of 2(car) {carpark[0,0]}\nIndex of 1(stair){carpark[0,1]}");
+            
+            return null;
+        }
+        public static int[] findIndexOf(int[,] carpark, int carOrStair)
+        {
+            int[] rezIndex = new int[2];
+            for (int i = 0; i < carpark.GetLength(0); i++)
+            {
+                for (int j = 0; j < carpark.GetLength(1); j++)
+                {
+                    if(carpark[i, j] == carOrStair)
+                    {
+                        rezIndex[0] = i;
+                        rezIndex[1] = j;
+                    }
+                }
+            }
+            return rezIndex;
         }
     }
 }
