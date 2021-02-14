@@ -82,31 +82,25 @@ namespace Solving
 
         public static int[] DeleteNth(int[] arr, int x)
         {
-            int[] toShow = new int[1] { 0 };
-            toShow[0] = arr[0];
-            int count = x - 1;
+            int count = x;
+            List<int> toHandle = new List<int>();
 
-            for (int i = 1; i < arr.Length; i++)
+            foreach (int elem in arr)
             {
-                Console.WriteLine($"first i = {i}");
-                count = (i == 0) ? x - 1 : x;
-                for (int j = 0; j < toShow.Length; j++)
-                {
-                    Console.WriteLine($"second j = {j}");
-                    if (count != 0 & toShow[j] == arr[i])
-                    {
-                        toShow = AddElemToMass(toShow, arr[j]);
-                        count--;
-                    }
-                    else if (toShow[j] != arr[i])
-                    {
-                        toShow = AddElemToMass(toShow, arr[j]);
-                    }
-                   // MySharp.showMass(toShow);
-                }
+                toHandle.Add(elem);
             }
-            return toShow;
+           
+            
+            int[] toReturn = toHandle.ToArray();
+            
+            return toReturn;
         }
+
+        private static bool EndsWithSaurus(int[] s)
+        {
+            return true;
+        }
+
         public static int[] AddElemToMass(int[] massToExpand, int toAdd)
         {
             int[] expanded = new int[massToExpand.Length + 1];
