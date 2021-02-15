@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,17 +84,28 @@ namespace Solving
         public static int[] DeleteNth(int[] arr, int x)
         {
             int count = x;
-            List<int> toHandle = new List<int>();
+            Hashtable ListOfElems = new Hashtable();
+            List<int> toReturn = new List<int>();
 
-            foreach (int elem in arr)
+            for (int i = 0; i < arr.Length; i++)
             {
-                toHandle.Add(elem);
+                if (!ListOfElems.ContainsKey(arr[i]))
+                {
+                    ListOfElems.Add(arr[i], count);
+                }
             }
-           
-            
-            int[] toReturn = toHandle.ToArray();
-            
-            return toReturn;
+            for (int i = 0; i < arr.Length; i++)
+            {
+
+                if (ListOfElems.ContainsKey(arr[i]) && (int)ListOfElems[arr[i]] > 0)
+                {
+                    toReturn.Add(arr[i]);
+                    ListOfElems[arr[i]] = (int)ListOfElems[arr[i]] - 1;
+                }
+            }
+
+
+            return toReturn.ToArray();
         }
 
         private static bool EndsWithSaurus(int[] s)
