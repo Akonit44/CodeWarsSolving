@@ -141,5 +141,18 @@ namespace Solving
             }
             return rezIndex;
         }
+
+        public static List<string> Top3(string s)
+        {
+            List<string> toReturn = new List<string>();
+            toReturn.AddRange(s.ToLower().Replace(",", "").Split(' '));
+            Hashtable memory = new Hashtable();
+            do
+            {
+                
+            }while (toReturn.Count > 0);
+
+            return toReturn;
+        }
     }
 }
