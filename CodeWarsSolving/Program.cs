@@ -14,7 +14,7 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            Akonit44_HelpMethods.showMass(DeleteNth(new int[] { 20, 37, 20, 21 }, 1));
+           
             
         }
             

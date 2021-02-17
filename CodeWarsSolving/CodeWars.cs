@@ -108,11 +108,6 @@ namespace Solving
             return toReturn.ToArray();
         }
 
-        private static bool EndsWithSaurus(int[] s)
-        {
-            return true;
-        }
-
         public static int[] AddElemToMass(int[] massToExpand, int toAdd)
         {
             int[] expanded = new int[massToExpand.Length + 1];
