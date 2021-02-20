@@ -8,9 +8,9 @@ namespace CodeWarsSolving
 {
     class Akonit44_HelpMethods
     {
-        public static void showMass(int[] massArg)
+        public static void showMass<T>(T[] massArg)
         {
-            foreach (int elem in massArg)
+            foreach (var elem in massArg)
             {
                 Console.Write(elem + " ");
             }

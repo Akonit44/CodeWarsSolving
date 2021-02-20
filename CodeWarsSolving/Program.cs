@@ -16,24 +16,32 @@ namespace CodeWarsSolving
         {
             string z = "s sffs, oprit sffs fsdg";
             List<string> a = new List<string>();
-            
+
             a.AddRange(z.ToLower().Replace(",", "").Split(' '));
-            string toCount = "";
-            int[] topThree = new int[3];
-            for (int i = 0; i < a.Count;i++)
-            {
-                toCount = a[i];
-                foreach (string elem in a)
-                {
-                    if(elem == toCount)
-                    {
-                        topThree[0]++;
-                    }
-                }
-                a.RemoveAll((toCount) => { return true; });
-            }
-            Akonit44_HelpMethods.showMass(topThree);
-            
+
+            string toCount = a[1];
+            int[] f4 = { a.RemoveAll(x => x == toCount) };
+            Akonit44_HelpMethods.showMass(f4);
+            //string toCount = "";
+            //int[] topThree = new int[3];
+            //int index = 0;
+            //for (int i = 0; i < a.Count; i++)
+            //{
+            //    index = topThree[index] > 0 ? index += 1 : index;
+            //    toCount = a[i];
+            //    foreach (string elem in a)
+            //    {
+            //        if (elem == toCount)
+            //        {
+            //            topThree[index]++;
+            //        }
+            //        Console.Write(elem + "| ");
+            //    }
+            //    a.RemoveAll(x => x == toCount);
+            //}
+
+            //Akonit44_HelpMethods.showMass(topThree);
+
         }
             
     }
