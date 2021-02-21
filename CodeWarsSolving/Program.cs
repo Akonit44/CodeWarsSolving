@@ -15,13 +15,26 @@ namespace CodeWarsSolving
         static void Main(string[] args)
         {
             string z = "s sffs, oprit sffs fsdg";
-            List<string> a = new List<string>();
+            List<string> allElems = new List<string>();
+            List<string> rez = new List<string>();
+            string toCount = "";
+            Hashtable a = new Hashtable();
+            
+            
+            allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
 
-            a.AddRange(z.ToLower().Replace(",", "").Split(' '));
+            
+            for (int i = 0; allElems.Count > 0; i++)
+            {
+                toCount = allElems[i];
+                a.Add(toCount, allElems.RemoveAll(x => x == toCount));
+            }
+            do
+            {
 
-            string toCount = a[1];
-            int[] f4 = { a.RemoveAll(x => x == toCount) };
-            Akonit44_HelpMethods.showMass(f4);
+            } while (a.Count > 0);
+            
+
             //string toCount = "";
             //int[] topThree = new int[3];
             //int index = 0;
@@ -43,6 +56,6 @@ namespace CodeWarsSolving
             //Akonit44_HelpMethods.showMass(topThree);
 
         }
-            
+
     }
 }
