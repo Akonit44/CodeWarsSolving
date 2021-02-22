@@ -14,27 +14,28 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string z = "s sffs, oprit sffs fsdg";
+            string z = "s s sffs, oprit sffs fsdg fsdg fsdg";
             List<string> allElems = new List<string>();
-            List<string> rez = new List<string>();
+            Hashtable rez = new Hashtable();
             string toCount = "";
-            Hashtable a = new Hashtable();
-            
+            int max = 0;
             
             allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
 
-            
+
             for (int i = 0; allElems.Count > 0; i++)
             {
-                toCount = allElems[i];
-                a.Add(toCount, allElems.RemoveAll(x => x == toCount));
+                toCount = allElems[0];
+                rez.Add(toCount,allElems.RemoveAll(x => x == toCount));
             }
+            ICollection values = rez.Values;
+            
             do
             {
-            // 1. Напиши метод поиска максимального ключа/значения в хештаблице;
-            // 2. Сделай логику удаления макс элемента и добавления его в возвращаемый список только строкового представления;
-
-            } while (a.Count > 0);
+                
+                // 1. Напиши метод поиска максимального ключа/значения в хештаблице;
+                // 2. Сделай логику удаления макс элемента и добавления его в возвращаемый список только строкового представления;
+            } while (rez.Count > 0);
             
 
             //string toCount = "";
