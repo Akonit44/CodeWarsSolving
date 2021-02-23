@@ -14,9 +14,10 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string z = "s sffs, oprit sffs fsdg";
+            string z = "s sffs, oprit s s sffs fsdg";
             List<string> allElems = new List<string>();
-            List<string> rez = new List<string>();
+            List<string> rez = new List<string>(new string[] { "", " " });
+            
             string toCount = "";
             Hashtable a = new Hashtable();
             
@@ -24,17 +25,36 @@ namespace CodeWarsSolving
             allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
 
             
-            for (int i = 0; allElems.Count > 0; i++)
+            for (int j = 0; allElems.Count > 0; j++)
             {
-                toCount = allElems[i];
+                toCount = allElems[0];
                 a.Add(toCount, allElems.RemoveAll(x => x == toCount));
             }
-            do
+           
+            
+           
+            int[] mass = new int[a.Keys.Count];
+            int i = 0;
+            foreach(string n in a.Keys)
             {
-            // 1. Напиши метод поиска максимального ключа/значения в хештаблице;
-            // 2. Сделай логику удаления макс элемента и добавления его в возвращаемый список только строкового представления;
+                mass[i] = (int)a[n];
+                Console.WriteLine($"{a[n]} - {n}" );
+                i++;
+            }
+            Array.Sort(mass);
+            Array.Reverse(mass);
+            Akonit44_HelpMethods.showMass(mass);
+            allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
 
-            } while (a.Count > 0);
+            for (int y = 0; (y < 3) && (y < mass.Length);y++)
+            {
+                rez.Add((string)a[mass[y]]);
+            }
+            Console.WriteLine(a["s"]);
+            foreach(string elem in rez)
+            {
+                Console.WriteLine(elem);
+            }
             
 
             //string toCount = "";
