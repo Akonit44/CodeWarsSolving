@@ -144,15 +144,43 @@ namespace Solving
 
         public static List<string> Top3(string s)
         {
-            List<string> toReturn = new List<string>();
-            toReturn.AddRange(s.ToLower().Replace(",", "").Split(' '));
-            Hashtable memory = new Hashtable();
-            do
-            {
-                
-            }while (toReturn.Count > 0);
+            List<string> allElems = new List<string>();
+            List<string> rez = new List<string>();
+            string toCount = "";
+            SortedDictionary<string, int> a = new SortedDictionary<string, int>();
 
-            return toReturn;
+            allElems.AddRange(s.ToLower().Replace(",", "").Split(' '));
+
+            for (int j = 0; allElems.Count > 0; j++)
+            {
+                toCount = allElems[0];
+                a.Add(toCount, allElems.RemoveAll(x => x == toCount));
+            }
+
+
+            int[] mass = new int[a.Count];
+            a.Values.CopyTo(mass, 0);
+            Array.Sort(mass);
+            Array.Reverse(mass);
+
+
+            for (int i = 0; i < mass.Length && i < 3;)
+            {
+                foreach (string Key in a.Keys)
+                {
+                    if (i < mass.Length && i < 3 && a[Key] == mass[i])
+                    {
+                        rez.Add(Key);
+                        i++;
+                    }
+                }
+            }
+
+            foreach (string aa in rez)
+            {
+                Console.WriteLine(aa);
+            }
+            return rez;
         }
     }
 }
