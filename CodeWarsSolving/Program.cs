@@ -14,47 +14,45 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string z = "s sffs, oprit s s sffs fsdg";
+            string z = "PIZDA PIZDA 3 132 12 12 12 12 132 132 a a a a a a a a a a a a a";
             List<string> allElems = new List<string>();
-            List<string> rez = new List<string>(new string[] { "", " " });
-            
+            List<string> rez = new List<string>();
             string toCount = "";
-            Hashtable a = new Hashtable();
-            
+            SortedDictionary<string, int> a = new SortedDictionary<string, int>();
             
             allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
-
             
             for (int j = 0; allElems.Count > 0; j++)
             {
                 toCount = allElems[0];
                 a.Add(toCount, allElems.RemoveAll(x => x == toCount));
             }
-           
-            
-           
-            int[] mass = new int[a.Keys.Count];
-            int i = 0;
-            foreach(string n in a.Keys)
-            {
-                mass[i] = (int)a[n];
-                Console.WriteLine($"{a[n]} - {n}" );
-                i++;
-            }
+
+
+            int[] mass = new int[a.Count];
+            a.Values.CopyTo(mass, 0);
             Array.Sort(mass);
             Array.Reverse(mass);
-            Akonit44_HelpMethods.showMass(mass);
-            allElems.AddRange(z.ToLower().Replace(",", "").Split(' '));
 
-            for (int y = 0; (y < 3) && (y < mass.Length);y++)
+
+            for (int i = 0; i < mass.Length && i < 3;)
             {
-                rez.Add((string)a[mass[y]]);
+                foreach (string Key in a.Keys)
+                {
+                    if (i < mass.Length && i < 3 && a[Key] == mass[i])
+                    {
+                        rez.Add(Key);
+                        i++;
+                    }
+                }
             }
-            Console.WriteLine(a["s"]);
-            foreach(string elem in rez)
-            {
-                Console.WriteLine(elem);
-            }
+            
+          foreach (string aa in rez)
+          {
+                Console.WriteLine(aa);
+          }
+           
+
             
 
             //string toCount = "";
