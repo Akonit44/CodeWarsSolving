@@ -15,13 +15,34 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            
-            string z = "PIZDA PIZDA 3 132 12 12. 12$ 12: 132; 132, a a a a a a a a a a a a a";
 
-            char[] a =(char[]) z.ToCharArray().Where((x)=>!char.IsPunctuation(x) );
-            Akonit44_HelpMethods.showMass(a);
+            //string s = "PIZDA PIZDA 3 132 12 12. 12$ 12: 132; 132, a a a a a a a a a a a a a";
 
-            
+            //char[] chTosort = s.ToCharArray();
+
+            //IEnumerable<char> toSort = chTosort.Where(ch => !(Char.IsPunctuation(ch)));
+            //chTosort = toSort.ToArray();
+            //s = "";
+            //foreach (char ch in chTosort)
+            //{
+            //  s += ch;
+            //}
+            //Console.WriteLine(s);
+            string test1 = "  ...  ";
+            List<string> a = Top3(test1);
+           
+            int i = 1;
+            foreach (string z in a)
+            {
+                Console.Write($"{i}) z = @{z}@\n");
+                i++;
+            }
+            int y = 0;
+
+
+                
+
+
 
             //string toCount = "";
             //int[] topThree = new int[3];

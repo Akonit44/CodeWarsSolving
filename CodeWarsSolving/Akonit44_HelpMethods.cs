@@ -12,7 +12,7 @@ namespace CodeWarsSolving
         {
             foreach (var elem in massArg)
             {
-                Console.Write(elem + " ");
+                Console.Write(elem + "\n");
             }
             Console.WriteLine();
         }

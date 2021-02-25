@@ -144,13 +144,23 @@ namespace Solving
 
         public static List<string> Top3(string s)
         {
+            char[] chTosort = s.ToCharArray();
+
+            IEnumerable<char> toSort = chTosort.Where(ch => !(Char.IsPunctuation(ch) && ch != '\''));
+            chTosort = toSort.ToArray();
+            s = string.Empty;
+            foreach (char ch in chTosort)
+            {
+                s += ch;
+            }
+
             List<string> allElems = new List<string>();
             List<string> rez = new List<string>();
             string toCount = "";
             SortedDictionary<string, int> a = new SortedDictionary<string, int>();
 
-            allElems.AddRange(s.ToLower().Replace(",", "").Split(' '));
-
+            allElems.AddRange(s.ToLower().Replace("  ", " ").Split(' '));
+            allElems.RemoveAll((x) => x == "");
             for (int j = 0; allElems.Count > 0; j++)
             {
                 toCount = allElems[0];
@@ -176,10 +186,7 @@ namespace Solving
                 }
             }
 
-            foreach (string aa in rez)
-            {
-                Console.WriteLine(aa);
-            }
+            
             return rez;
         }
     }
