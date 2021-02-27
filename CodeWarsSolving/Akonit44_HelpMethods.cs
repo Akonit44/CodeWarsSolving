@@ -16,5 +16,12 @@ namespace CodeWarsSolving
             }
             Console.WriteLine();
         }
+        public static void showMass<T>(List<T> list)
+        {
+            foreach(var elem in list)
+            {
+                Console.Write(elem + " ");
+            }
+        }
     }
 }

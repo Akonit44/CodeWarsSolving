@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -144,14 +145,14 @@ namespace Solving
 
         public static List<string> Top3(string s)
         {
-            char[] chTosort = s.ToCharArray();
+            string[] chTosort = s.Split(' ');
 
-            IEnumerable<char> toSort = chTosort.Where(ch => !(Char.IsPunctuation(ch) && ch != '\''));
-            chTosort = toSort.ToArray();
+            
+            
             s = string.Empty;
-            foreach (char ch in chTosort)
+            foreach (string ch in chTosort)
             {
-                s += ch;
+                s += Regex.Replace(ch.ToLower(), @"[^\w\.@-]", "", RegexOptions.None, TimeSpan.FromSeconds(1.5)) + " ";
             }
 
             List<string> allElems = new List<string>();
@@ -159,7 +160,7 @@ namespace Solving
             string toCount = "";
             SortedDictionary<string, int> a = new SortedDictionary<string, int>();
 
-            allElems.AddRange(s.ToLower().Replace("  ", " ").Split(' '));
+            allElems.AddRange(s.Split(' '));
             allElems.RemoveAll((x) => x == "");
             for (int j = 0; allElems.Count > 0; j++)
             {
