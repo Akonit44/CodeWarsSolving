@@ -18,7 +18,11 @@ namespace CodeWarsSolving
         {
             string test1 = "  //wont won't won't ";
             Akonit44_HelpMethods.showMass(Top3(test1));
-             
+            
+
+            Regex regex = new Regex(@"(\w*)'(\w*)", RegexOptions.IgnorePatternWhitespace);
+            
+            
 
         }
 

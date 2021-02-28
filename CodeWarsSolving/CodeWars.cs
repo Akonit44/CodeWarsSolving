@@ -76,7 +76,6 @@ namespace Solving
                         rez.Add(side);
                     }
                 }
-
             }
             rez.Add(side);
             return rez;
@@ -104,7 +103,6 @@ namespace Solving
                     ListOfElems[arr[i]] = (int)ListOfElems[arr[i]] - 1;
                 }
             }
-
 
             return toReturn.ToArray();
         }
@@ -147,8 +145,6 @@ namespace Solving
         {
             string[] chTosort = s.Split(' ');
 
-            
-            
             s = string.Empty;
             foreach (string ch in chTosort)
             {
@@ -168,13 +164,11 @@ namespace Solving
                 a.Add(toCount, allElems.RemoveAll(x => x == toCount));
             }
 
-
             int[] mass = new int[a.Count];
             a.Values.CopyTo(mass, 0);
             Array.Sort(mass);
             Array.Reverse(mass);
-
-
+            
             for (int i = 0; i < mass.Length && i < 3;)
             {
                 foreach (string Key in a.Keys)
@@ -187,7 +181,6 @@ namespace Solving
                 }
             }
 
-            
             return rez;
         }
     }
