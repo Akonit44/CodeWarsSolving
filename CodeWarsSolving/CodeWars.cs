@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using System.Text;
 using System.Threading.Tasks;
+using CodeWarsSolving;
 
 namespace Solving
 {
@@ -143,12 +145,21 @@ namespace Solving
 
         public static List<string> Top3(string s)
         {
-            string[] chTosort = s.Split(' ');
 
-            s = string.Empty;
-            foreach (string ch in chTosort)
+
+            s = Regex.Replace(s, @"(^\s+)(\W+)", "");
+            Regex regex = new Regex(@"[a-z']*(\s)");
+
+            MatchCollection collect = regex.Matches(s);
+
+
+
+
+            foreach (var elem in collect)
             {
-                s += Regex.Replace(ch.ToLower(), @"[^\w\.@-]", "", RegexOptions.None, TimeSpan.FromSeconds(1.5)) + " ";
+                //DEBUG
+                Console.WriteLine(elem);
+                s += elem;
             }
 
             List<string> allElems = new List<string>();
@@ -168,6 +179,9 @@ namespace Solving
             a.Values.CopyTo(mass, 0);
             Array.Sort(mass);
             Array.Reverse(mass);
+
+            //DEBUG
+            Akonit44_HelpMethods.showMass(mass);
             
             for (int i = 0; i < mass.Length && i < 3;)
             {

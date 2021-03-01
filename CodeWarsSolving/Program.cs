@@ -11,20 +11,23 @@ using System.Text.RegularExpressions;
 
 namespace CodeWarsSolving
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            string test1 = "  //wont won't won't ";
-            Akonit44_HelpMethods.showMass(Top3(test1));
-            
+            string s = "a a a  b  c c  d d d d  e e e e e";
 
-            Regex regex = new Regex(@"(\w*)'(\w*)", RegexOptions.IgnorePatternWhitespace);
+            //s = Regex.Replace(s, @"(^\s+)", "");
+            //Regex regex = new Regex(@"[a-z']*(\s)");
             
+            //MatchCollection collect = regex.Matches(s);
+            //Console.WriteLine(collect.Count);
+            //foreach (var elem in collect)
+            //{
+              //  s += elem;
+            //}
             
-
+            Akonit44_HelpMethods.showMass(Top3(s));
         }
-
     }
 }

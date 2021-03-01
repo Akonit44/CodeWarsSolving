@@ -12,15 +12,16 @@ namespace CodeWarsSolving
         {
             foreach (var elem in massArg)
             {
-                Console.Write(elem + "\n");
+                Console.Write(elem + " ");
             }
             Console.WriteLine();
         }
         public static void showMass<T>(List<T> list)
         {
+            Console.WriteLine($"Count - {list.Count}");
             foreach(var elem in list)
             {
-                Console.Write(elem + " ");
+                Console.Write( $"{elem} ");
             }
         }
     }
