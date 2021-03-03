@@ -15,19 +15,21 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string s = "a a a  b  c c  d d d d  e e e e e";
+            string s = " yfrkkh, yfrkkh_";
 
-            //s = Regex.Replace(s, @"(^\s+)", "");
-            //Regex regex = new Regex(@"[a-z']*(\s)");
+            //s = Regex.Replace(s, @"(\s{2,})", " ");
             
+            //Regex regex = new Regex(@"[a-z]*(\'?)(\w){1}");
+
             //MatchCollection collect = regex.Matches(s);
             //Console.WriteLine(collect.Count);
+            //s = "";
             //foreach (var elem in collect)
             //{
-              //  s += elem;
+            //    s += elem;
             //}
-            
-            Akonit44_HelpMethods.showMass(Top3(s));
+            //Console.WriteLine(s);
+             Akonit44_HelpMethods.showMass(Top3(s));
         }
     }
 }

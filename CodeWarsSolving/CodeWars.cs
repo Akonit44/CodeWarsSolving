@@ -146,22 +146,17 @@ namespace Solving
         public static List<string> Top3(string s)
         {
 
-
-            s = Regex.Replace(s, @"(^\s+)(\W+)", "");
-            Regex regex = new Regex(@"[a-z']*(\s)");
+            s= s.ToLower();
+            s = Regex.Replace(s, @"(\s{2,})", " ");
+            Regex regex = new Regex(@"[a-z]*(\'?)(t)?");
 
             MatchCollection collect = regex.Matches(s);
-
-
-
-
+            s = "";
             foreach (var elem in collect)
             {
-                //DEBUG
-                Console.WriteLine(elem);
-                s += elem;
+                s += elem + " ";
             }
-
+            
             List<string> allElems = new List<string>();
             List<string> rez = new List<string>();
             string toCount = "";
@@ -180,8 +175,7 @@ namespace Solving
             Array.Sort(mass);
             Array.Reverse(mass);
 
-            //DEBUG
-            Akonit44_HelpMethods.showMass(mass);
+            
             
             for (int i = 0; i < mass.Length && i < 3;)
             {
