@@ -15,21 +15,8 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string s = " yfrkkh, yfrkkh_";
+            Console.WriteLine(Sum(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
 
-            //s = Regex.Replace(s, @"(\s{2,})", " ");
-            
-            //Regex regex = new Regex(@"[a-z]*(\'?)(\w){1}");
-
-            //MatchCollection collect = regex.Matches(s);
-            //Console.WriteLine(collect.Count);
-            //s = "";
-            //foreach (var elem in collect)
-            //{
-            //    s += elem;
-            //}
-            //Console.WriteLine(s);
-             Akonit44_HelpMethods.showMass(Top3(s));
         }
     }
 }

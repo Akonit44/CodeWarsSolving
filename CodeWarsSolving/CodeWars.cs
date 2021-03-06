@@ -191,5 +191,26 @@ namespace Solving
 
             return rez;
         }
+
+
+        public static int MaxSequence(int[] arr)
+        {
+            for (int j = 0; j< arr.Length;j++)
+            {
+
+            }
+
+            return 0;
+        }
+        public static int Sum(int[] arr)
+        {
+            int rez = 0;
+            for (int i = 0; i< arr.Length;i++)
+            {
+                rez += arr[i];
+            }
+
+            return rez;
+        }
     }
 }
