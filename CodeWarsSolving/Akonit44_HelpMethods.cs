@@ -18,7 +18,7 @@ namespace CodeWarsSolving
         }
         public static void showMass<T>(List<T> list)
         {
-            Console.WriteLine($"Count - {list.Count}");
+            
             foreach(var elem in list)
             {
                 Console.Write( $"{elem} ");
