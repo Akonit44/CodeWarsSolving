@@ -146,7 +146,7 @@ namespace Solving
         public static List<string> Top3(string s)
         {
 
-
+            
             s = Regex.Replace(s, @"(^\s+)(\W+)", "");
             Regex regex = new Regex(@"[a-z']*(\s)");
 

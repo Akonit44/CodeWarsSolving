@@ -16,7 +16,7 @@ namespace CodeWarsSolving
         static void Main(string[] args)
         {
             string s = "a a a  b  c c  d d d d  e e e e e";
-
+            
             //s = Regex.Replace(s, @"(^\s+)", "");
             //Regex regex = new Regex(@"[a-z']*(\s)");
             
