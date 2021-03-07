@@ -158,7 +158,7 @@ namespace Solving
             foreach (var elem in collect)
             {
                 //DEBUG
-                Console.WriteLine(elem);
+            
                 s += elem;
             }
 

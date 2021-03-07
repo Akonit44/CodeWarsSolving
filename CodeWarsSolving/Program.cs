@@ -15,19 +15,21 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            string s = "a a a  b  c c  d d d d  e e e e e";
-            
-            //s = Regex.Replace(s, @"(^\s+)", "");
-            //Regex regex = new Regex(@"[a-z']*(\s)");
-            
-            //MatchCollection collect = regex.Matches(s);
-            //Console.WriteLine(collect.Count);
-            //foreach (var elem in collect)
-            //{
-              //  s += elem;
-            //}
-            
-            Akonit44_HelpMethods.showMass(Top3(s));
+            int[] carpark = { 1, 0, 0, 0, 2 };
+            int carI = 0, stairI = 0;
+            for (int i = 0; i< carpark.Length;i++)
+            {
+                if(carpark[i] == 2)
+                {
+                    carI = i;
+                }
+                else if (carpark[i] == 1)
+                {
+                    stairI = i;
+                }
+            }
+            string direction = (stairI > carI)? "R":"L" ;
+            Console.WriteLine($"stair = {stairI}, car = {carI} {direction}{((stairI > carI)? stairI - carI : carI - stairI)}");
         }
     }
 }
