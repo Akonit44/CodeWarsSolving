@@ -202,15 +202,17 @@ namespace Solving
         {
             word = word.ToLower();
             char[] tochange = word.ToCharArray();
+            
             for(int i =0; i < tochange.Length; i++)
             {
                 if ((word.IndexOf(tochange[i]) == word.LastIndexOf(tochange[i])) && (tochange[i] != '(' || tochange[i] != ')'))
                 {
-
+                   word =  word.Replace(tochange[i], '(');
+                  
                 }
-                else if ()
+                else if ((word.IndexOf(tochange[i]) != word.LastIndexOf(tochange[i]) && (tochange[i] != '(' || tochange[i] != ')')))
                 {
-
+                   word = word.Replace(tochange[i], ')');
                 }
             }
             return word;
