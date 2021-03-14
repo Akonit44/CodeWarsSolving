@@ -32,6 +32,16 @@ namespace CodeWarsSolving
             //Console.WriteLine($"stair = {stairI}, car = {carI} {direction}{((stairI > carI)? stairI - carI : carI - stairI)}");
             string a = "dind";
             Console.WriteLine(DuplicateEncode(a));
+            HashSet<char> hs = new HashSet<char>();
+
+            foreach(char ch in a.ToCharArray())
+            {
+                hs.Add(ch);
+            }
+            foreach(char ch in hs)
+            {
+                Console.WriteLine(ch);
+            }
 
 
         }
