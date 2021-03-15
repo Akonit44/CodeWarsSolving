@@ -30,17 +30,19 @@ namespace CodeWarsSolving
             //}
             //string direction = (stairI > carI)? "R":"L" ;
             //Console.WriteLine($"stair = {stairI}, car = {carI} {direction}{((stairI > carI)? stairI - carI : carI - stairI)}");
-            string a = "dind";
+            string a = "ehvekwke";
             Console.WriteLine(DuplicateEncode(a));
             HashSet<char> hs = new HashSet<char>();
-
-            foreach(char ch in a.ToCharArray())
+            int[] intA = {1,1,22,22,4,3,3,4 };
+            HashSet<int> intHs = new HashSet<int>();
+            
+            foreach(int ab in intA)
             {
-                hs.Add(ch);
+                intHs.Add(ab);
             }
-            foreach(char ch in hs)
+            foreach(int ab in intHs)
             {
-                Console.WriteLine(ch);
+                Console.Write(ab + " |");
             }
 
 
