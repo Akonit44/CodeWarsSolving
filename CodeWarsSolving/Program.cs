@@ -32,13 +32,8 @@ namespace CodeWarsSolving
             //string direction = (stairI > carI)? "R":"L" ;
             //Console.WriteLine($"stair = {stairI}, car = {carI} {direction}{((stairI > carI)? stairI - carI : carI - stairI)}");
 
-            string str = "(()aas";
-            string rez = "";
-            List<char> list = new List<char>();
-            list.AddRange(str.ToArray());
-            list.ForEach(elem => rez += (str.IndexOf(elem) != str.LastIndexOf(elem)) ? ")" : "(");
-            Console.WriteLine(rez);
-            
+            string word = "(()aas";
+            DuplicateEncode(word);
         }
     }
 }

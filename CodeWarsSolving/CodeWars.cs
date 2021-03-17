@@ -200,21 +200,11 @@ namespace Solving
         public static string DuplicateEncode(string word)
         {
             word = word.ToLower();
-            char[] tochange = word.ToCharArray();
-            
-            for(int i =0; i < tochange.Length; i++)
-            {
-                if ((word.IndexOf(tochange[i]) == word.LastIndexOf(tochange[i])) && (tochange[i] != '(' || tochange[i] != ')'))
-                {
-                   word =  word.Replace(tochange[i], '(');
-                  
-                }
-                else if ((word.IndexOf(tochange[i]) != word.LastIndexOf(tochange[i]) && (tochange[i] != '(' || tochange[i] != ')')))
-                {
-                   word = word.Replace(tochange[i], ')');
-                }
-            }
-            return word;
+            string rez = "";
+            List<char> list = new List<char>();
+            list.AddRange(word.ToCharArray());
+            list.ForEach(elem => rez += (word.IndexOf(elem) != word.LastIndexOf(elem)) ? ")" : "(");
+            return rez;
         }
     }
 }
