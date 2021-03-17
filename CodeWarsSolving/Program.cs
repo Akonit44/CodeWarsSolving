@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
 using static Solving.MethodsCW;
-using System.Text.RegularExpressions;
+
 
 
 
@@ -30,22 +31,14 @@ namespace CodeWarsSolving
             //}
             //string direction = (stairI > carI)? "R":"L" ;
             //Console.WriteLine($"stair = {stairI}, car = {carI} {direction}{((stairI > carI)? stairI - carI : carI - stairI)}");
-            string a = "ehvekwke";
-            Console.WriteLine(DuplicateEncode(a));
-            HashSet<char> hs = new HashSet<char>();
-            int[] intA = {1,1,22,22,4,3,3,4 };
-            HashSet<int> intHs = new HashSet<int>();
+
+            string str = "(()aas";
+            string rez = "";
+            List<char> list = new List<char>();
+            list.AddRange(str.ToArray());
+            list.ForEach(elem => rez += (str.IndexOf(elem) != str.LastIndexOf(elem)) ? ")" : "(");
+            Console.WriteLine(rez);
             
-            foreach(int ab in intA)
-            {
-                intHs.Add(ab);
-            }
-            foreach(int ab in intHs)
-            {
-                Console.Write(ab + " |");
-            }
-
-
         }
     }
 }
