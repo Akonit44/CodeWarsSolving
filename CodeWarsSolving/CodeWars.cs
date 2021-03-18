@@ -206,5 +206,17 @@ namespace Solving
             list.ForEach(elem => rez += (word.IndexOf(elem) != word.LastIndexOf(elem)) ? ")" : "(");
             return rez;
         }
+        public static int[] ArrayDiff(int[] a, int[] b)
+        {
+            List<int> a1 = new List<int>();
+            
+            a1.AddRange(a);
+            for(int i = 0; i < b.Length; i++)
+            {
+                a1.RemoveAll(x => x == b[i]);
+            }
+
+            return a1.ToArray();
+        }
     }
 }
