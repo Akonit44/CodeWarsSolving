@@ -16,15 +16,10 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            List<int> inz = new List<int>();
-            inz.AddRange(new int[] { 4, 4, 5 });
-            inz.RemoveAll(x => x == 4);
-            foreach(int elem in inz)
-            {
-                Console.Write(elem + " ");
-            }
-
             
+
+            Console.WriteLine("test");
+
         }
     }
 }

@@ -218,5 +218,20 @@ namespace Solving
 
             return a1.ToArray();
         }
+
+        public static string Rot13(string message)
+        {
+            char[] ch_mass = message.ToCharArray();
+
+            Hashtable dictionary1 = new Hashtable();
+            Hashtable dictionary2 = new Hashtable();
+            for (int i = 0; i < 26; i++) { 
+                dictionary1.Add(i, (char)('a' + i));
+                dictionary2.Add((char)('a' + i),i);
+            }
+
+
+            return null;
+        }
     }
 }
