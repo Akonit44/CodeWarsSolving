@@ -221,7 +221,10 @@ namespace Solving
 
         public static string Rot13(string message)
         {
-            char[] ch_mass = message.ToCharArray();
+            List<char> ch_mass = new List<char>(message.ToCharArray());
+            foreach(char ch in ch_mass)
+              Console.Write(ch + " ");
+            
 
             Hashtable dictionary1 = new Hashtable();
             Hashtable dictionary2 = new Hashtable();
@@ -229,9 +232,10 @@ namespace Solving
                 dictionary1.Add(i, (char)('a' + i));
                 dictionary2.Add((char)('a' + i),i);
             }
-
-
-            return null;
+            message = "";
+            //ch_mass.ForEach(ch => message += ((int)dictionary2[ch] + 13 > 25) ? (char)(int)dictionary1[(int)dictionary2[ch] + 13 % 25] : (char)((int)dictionary2[ch] + 13));
+            
+            return message;
         }
     }
 }
