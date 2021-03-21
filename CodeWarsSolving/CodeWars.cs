@@ -221,20 +221,20 @@ namespace Solving
 
         public static string Rot13(string message)
         {
-            List<char> ch_mass = new List<char>(message.ToCharArray());
-            foreach(char ch in ch_mass)
-              Console.Write(ch + " ");
-            
-
+            char[] ch_mass = message.ToCharArray();
+            bool inRange = false;
             Hashtable dictionary1 = new Hashtable();
             Hashtable dictionary2 = new Hashtable();
             for (int i = 0; i < 26; i++) { 
                 dictionary1.Add(i, (char)('a' + i));
-                dictionary2.Add((char)('a' + i),i);
+                dictionary2.Add((char)('a' + i), i);
             }
             message = "";
-            //ch_mass.ForEach(ch => message += ((int)dictionary2[ch] + 13 > 25) ? (char)(int)dictionary1[(int)dictionary2[ch] + 13 % 25] : (char)((int)dictionary2[ch] + 13));
-            
+            for (int i = 0;i < ch_mass.Length;i++) {
+                inRange = (int)dictionary2[ch_mass[i]] + 13 > 26;
+                if (inRange) message += (char)dictionary1[((int)dictionary2[ch_mass[i]] + 13) % 26];
+                else message += (char)dictionary1[(int)dictionary2[ch_mass[i]] + 13];
+            }
             return message;
         }
     }
