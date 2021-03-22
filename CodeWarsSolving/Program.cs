@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
 using static Solving.MethodsCW;
+using static System.Char;
 
 
 
@@ -16,7 +17,9 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Rot13("test"));
+            Console.WriteLine(Rot13_2("test"));
+
+            
         }
     }
 }

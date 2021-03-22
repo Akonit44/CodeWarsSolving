@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
 using CodeWarsSolving;
+using static System.Char;
 
 namespace Solving
 {
@@ -219,21 +220,46 @@ namespace Solving
             return a1.ToArray();
         }
 
-        public static string Rot13(string message)
+        public static string Rot13_orig(string message)
         {
             char[] ch_mass = message.ToCharArray();
             bool inRange = false;
-            Hashtable dictionary1 = new Hashtable();
-            Hashtable dictionary2 = new Hashtable();
+            Dictionary<int, char> dictionary1 = new Dictionary<int, char>();
+            Dictionary<char, int> dictionary2 = new Dictionary<char, int>();
             for (int i = 0; i < 26; i++) { 
                 dictionary1.Add(i, (char)('a' + i));
                 dictionary2.Add((char)('a' + i), i);
             }
             message = "";
             for (int i = 0;i < ch_mass.Length;i++) {
-                inRange = (int)dictionary2[ch_mass[i]] + 13 > 26;
-                if (inRange) message += (char)dictionary1[((int)dictionary2[ch_mass[i]] + 13) % 26];
-                else message += (char)dictionary1[(int)dictionary2[ch_mass[i]] + 13];
+                inRange = dictionary2[ch_mass[i]] + 13 > 26;
+                if (inRange) message += dictionary1[(dictionary2[ch_mass[i]] + 13) % 26];
+                else message += dictionary1[dictionary2[ch_mass[i]] + 13];
+            }
+            return message;
+        }
+
+        public static string Rot13_2(string message)
+        {
+            char[] ch_mass = message.ToCharArray();
+            bool[] inRange_isUp_isLetter = { false,false,false };
+            Dictionary<int, char> dictionary1 = new Dictionary<int, char>();
+            Dictionary<char, int> dictionary2 = new Dictionary<char, int>();
+            for (int i = 0; i < 26; i++)
+            {
+                dictionary1.Add(i, (char)('a' + i));
+                dictionary2.Add((char)('a' + i), i);
+            }
+            message = "";
+            for (int i = 0; i < ch_mass.Length; i++)
+            {
+
+                inRange_isUp_isLetter[0] = dictionary2[ch_mass[i]] + 13 > 26;
+                inRange_isUp_isLetter[1] = IsUpper(ch_mass[i]);
+                inRange_isUp_isLetter[2] = IsLetter(ch_mass[i]);
+                if (inRange_isUp_isLetter[0] && inRange_isUp_isLetter[1] == false) message += dictionary1[(dictionary2[ch_mass[i]] + 13) % 26];
+                else if(inRange_isUp_isLetter[0] && inRange_isUp_isLetter[1]) message += ToUpper(dictionary1[(dictionary2[ch_mass[i]] + 13) % 26]);
+                else message += dictionary1[dictionary2[ch_mass[i]] + 13];
             }
             return message;
         }
