@@ -122,8 +122,8 @@ namespace Solving
 
         public static string[] escape(int[,] carpark)
         {
-            Console.WriteLine($"index of 2(car) {carpark[0,0]}\nIndex of 1(stair){carpark[0,1]}");
-            
+            Console.WriteLine($"index of 2(car) {carpark[0, 0]}\nIndex of 1(stair){carpark[0, 1]}");
+
             return null;
         }
         public static int[] findIndexOf(int[,] carpark, int carOrStair)
@@ -133,7 +133,7 @@ namespace Solving
             {
                 for (int j = 0; j < carpark.GetLength(1); j++)
                 {
-                    if(carpark[i, j] == carOrStair)
+                    if (carpark[i, j] == carOrStair)
                     {
                         rezIndex[0] = i;
                         rezIndex[1] = j;
@@ -146,7 +146,7 @@ namespace Solving
         public static List<string> Top3(string s)
         {
 
-            
+
             s = Regex.Replace(s, @"(^\s+)(\W+)", "");
             Regex regex = new Regex(@"[a-z']*(\s)");
 
@@ -158,7 +158,7 @@ namespace Solving
             foreach (var elem in collect)
             {
                 //DEBUG
-            
+
                 s += elem;
             }
 
@@ -182,7 +182,7 @@ namespace Solving
 
             //DEBUG
             Akonit44_HelpMethods.showMass(mass);
-            
+
             for (int i = 0; i < mass.Length && i < 3;)
             {
                 foreach (string Key in a.Keys)
@@ -210,9 +210,9 @@ namespace Solving
         public static int[] ArrayDiff(int[] a, int[] b)
         {
             List<int> a1 = new List<int>();
-            
+
             a1.AddRange(a);
-            for(int i = 0; i < b.Length; i++)
+            for (int i = 0; i < b.Length; i++)
             {
                 a1.RemoveAll(x => x == b[i]);
             }
@@ -220,46 +220,28 @@ namespace Solving
             return a1.ToArray();
         }
 
-        public static string Rot13_orig(string message)
-        {
-            char[] ch_mass = message.ToCharArray();
-            bool inRange = false;
-            Dictionary<int, char> dictionary1 = new Dictionary<int, char>();
-            Dictionary<char, int> dictionary2 = new Dictionary<char, int>();
-            for (int i = 0; i < 26; i++) { 
-                dictionary1.Add(i, (char)('a' + i));
-                dictionary2.Add((char)('a' + i), i);
-            }
-            message = "";
-            for (int i = 0;i < ch_mass.Length;i++) {
-                inRange = dictionary2[ch_mass[i]] + 13 > 26;
-                if (inRange) message += dictionary1[(dictionary2[ch_mass[i]] + 13) % 26];
-                else message += dictionary1[dictionary2[ch_mass[i]] + 13];
-            }
-            return message;
-        }
+    
 
-        public static string Rot13_2(string message)
+        public static string Rot13(string message)
         {
             char[] ch_mass = message.ToCharArray();
-            bool[] inRange_isUp_isLetter = { false,false,false };
-            Dictionary<int, char> dictionary1 = new Dictionary<int, char>();
-            Dictionary<char, int> dictionary2 = new Dictionary<char, int>();
+            Dictionary<int, char> dictionary_num = new Dictionary<int, char>();
+            Dictionary<char, int> dictionary_char = new Dictionary<char, int>();
             for (int i = 0; i < 26; i++)
             {
-                dictionary1.Add(i, (char)('a' + i));
-                dictionary2.Add((char)('a' + i), i);
+                dictionary_num.Add(i, (char)('a' + i));
+                dictionary_char.Add((char)('a' + i), i);
             }
             message = "";
             for (int i = 0; i < ch_mass.Length; i++)
-            {
-
-                inRange_isUp_isLetter[0] = dictionary2[ch_mass[i]] + 13 > 26;
-                inRange_isUp_isLetter[1] = IsUpper(ch_mass[i]);
-                inRange_isUp_isLetter[2] = IsLetter(ch_mass[i]);
-                if (inRange_isUp_isLetter[0] && inRange_isUp_isLetter[1] == false) message += dictionary1[(dictionary2[ch_mass[i]] + 13) % 26];
-                else if(inRange_isUp_isLetter[0] && inRange_isUp_isLetter[1]) message += ToUpper(dictionary1[(dictionary2[ch_mass[i]] + 13) % 26]);
-                else message += dictionary1[dictionary2[ch_mass[i]] + 13];
+            { 
+                try {
+                    if (IsLetter(ch_mass[i])) message += dictionary_num[(dictionary_char[ch_mass[i]] + 13) % 26];
+                    else message += ch_mass[i]; }
+                catch { 
+                    if (IsLetter(ch_mass[i])) message += ToUpper(dictionary_num[(dictionary_char[ToLower(ch_mass[i])] + 13) % 26]);
+                    else message += ch_mass[i];
+                }
             }
             return message;
         }

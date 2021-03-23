@@ -17,7 +17,7 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Rot13_2("test"));
+            Console.WriteLine(Rot13("Test  test yo man, I like you@!!"));
 
             
         }
