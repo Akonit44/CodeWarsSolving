@@ -17,8 +17,9 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Rot13("Test  test yo man, I like you@!!"));
-
+            List<string> words = new List<string>();
+            words.AddRange(new string[] { "aaa", "sdas" });
+            Anagrams("aabb", words);
             
         }
     }

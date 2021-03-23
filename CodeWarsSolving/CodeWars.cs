@@ -245,5 +245,11 @@ namespace Solving
             }
             return message;
         }
+
+        public static List<string> Anagrams(string word, List<string> words)
+        {
+            Console.WriteLine( words[1]);
+            return null;
+        }
     }
 }
