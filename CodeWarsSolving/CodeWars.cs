@@ -220,7 +220,7 @@ namespace Solving
             return a1.ToArray();
         }
 
-    
+
 
         public static string Rot13(string message)
         {
@@ -234,11 +234,14 @@ namespace Solving
             }
             message = "";
             for (int i = 0; i < ch_mass.Length; i++)
-            { 
-                try {
+            {
+                try
+                {
                     if (IsLetter(ch_mass[i])) message += dictionary_num[(dictionary_char[ch_mass[i]] + 13) % 26];
-                    else message += ch_mass[i]; }
-                catch { 
+                    else message += ch_mass[i];
+                }
+                catch
+                {
                     if (IsLetter(ch_mass[i])) message += ToUpper(dictionary_num[(dictionary_char[ToLower(ch_mass[i])] + 13) % 26]);
                     else message += ch_mass[i];
                 }
@@ -248,8 +251,28 @@ namespace Solving
 
         public static List<string> Anagrams(string word, List<string> words)
         {
-            Console.WriteLine( words[1]);
-            return null;
+            List<string> rez = new List<string>();
+            char[] wrd_ch_mass;
+            for (int i = 0; i < words.Count; i++)
+            {
+                wrd_ch_mass = words[i].ToCharArray();
+                for (int j = 0; j < word.Length; j++)
+                {
+                    if (word.Contains(words[i][j])) { 
+                        rez.Add(words[i]);
+                        wrd_ch_mass[j] = ' ';
+                        words[i] = new string(wrd_ch_mass);
+                    }
+                    else
+                    {
+                        rez.Remove(words[i]);
+                        continue;
+                    }
+                }
+
+                
+            }
+            return rez;
         }
     }
 }

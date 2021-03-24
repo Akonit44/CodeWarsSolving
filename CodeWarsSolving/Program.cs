@@ -18,8 +18,11 @@ namespace CodeWarsSolving
         static void Main(string[] args)
         {
             List<string> words = new List<string>();
-            words.AddRange(new string[] { "aaa", "sdas" });
-            Anagrams("aabb", words);
+            words.AddRange(new string[] { "abab", "sdas" });
+            foreach(string s in Anagrams("aabb", words))
+            {
+                Console.WriteLine(s);
+            }
             
         }
     }
