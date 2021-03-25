@@ -249,7 +249,7 @@ namespace Solving
             return message;
         }
 
-        public static List<string> Anagrams(string word, List<string> words)
+        public static List<string> Anagrams_sykles(string word, List<string> words)
         {
             List<string> rez = new List<string>();
             char[] wrd_ch_mass;
@@ -273,6 +273,13 @@ namespace Solving
                 
             }
             return rez;
+        }
+        public static List<string> Anagrams_LINQ(string word, List<string> words)
+        {
+            var rez = words.Where(wrd => wrd.Union(word).Count() == word.Length).ToList<string>();
+
+            return rez;
+            
         }
     }
 }
