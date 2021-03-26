@@ -20,8 +20,10 @@ namespace CodeWarsSolving
             List<string> words = new List<string>();
             string word = "abba";
             words.AddRange(new string[] { "abab", "sdas" });
-            
-            Console.WriteLine(new string(words[0].Union(word).ToList().ToArray()));
+            List<char> a = new List<char>(word.ToCharArray());
+            List<char> rez = new List<char>(new char[] {'v','a','c','a' });
+            a.ForEach(ch => ); 
+            //Console.WriteLine(new string(words[0].Union(word).ToList().ToArray()));
             //var rez = words.Where(wrd => wrd.Union(word).Count() == word.Length).ToList<string>();
 
  
