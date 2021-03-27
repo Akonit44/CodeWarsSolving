@@ -17,12 +17,17 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            List<string> words = new List<string>();
-            string word = "abba";
-            words.AddRange(new string[] { "abab", "sdas" });
-            List<char> a = new List<char>(word.ToCharArray());
-            List<char> rez = new List<char>(new char[] {'v','a','c','a' });
-            a.ForEach(ch => ); 
+            List<string> Candidates = new List<string>();
+            string toCompare = "abba";
+
+            Candidates.AddRange(new string[] { "abab", "sdas" });
+
+            List<char> toCompare_List = new List<char>(toCompare.ToCharArray());
+            List<char> rez = new List<char>();
+            toCompare = "";
+            toCompare_List.ForEach(a => toCompare+=(char)(a + 1) );
+
+            Console.WriteLine(toCompare);
             //Console.WriteLine(new string(words[0].Union(word).ToList().ToArray()));
             //var rez = words.Where(wrd => wrd.Union(word).Count() == word.Length).ToList<string>();
 
