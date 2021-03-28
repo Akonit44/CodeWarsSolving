@@ -249,37 +249,18 @@ namespace Solving
             return message;
         }
 
-        public static List<string> Anagrams_sykles(string word, List<string> words)
+        
+        public static List<string> Anagrams(string word, List<string> words)
         {
+            
+            int wrd = word.Sum(x => x);
             List<string> rez = new List<string>();
-            char[] wrd_ch_mass;
-            for (int i = 0; i < words.Count; i++)
-            {
-                wrd_ch_mass = words[i].ToCharArray();
-                for (int j = 0; j < word.Length; j++)
-                {
-                    if (word.Contains(words[i][j])) { 
-                        rez.Add(words[i]);
-                        wrd_ch_mass[j] = ' ';
-                        words[i] = new string(wrd_ch_mass);
-                    }
-                    else
-                    {
-                        rez.Remove(words[i]);
-                        continue;
-                    }
-                }
 
-                
+            for(int i =0; i<words.Count; i++)
+            {
+                if (wrd == words[i].Sum(x => x) && !rez.Contains(words[i])) rez.Add(words[i]);   
             }
             return rez;
-        }
-        public static List<string> Anagrams_LINQ(string word, List<string> words)
-        {
-            var rez = words.Where(wrd => wrd.Union(word).Count() == word.Length).ToList<string>();
-
-            return rez;
-            
         }
     }
 }
