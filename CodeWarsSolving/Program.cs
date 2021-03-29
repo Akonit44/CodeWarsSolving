@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using static Solving.MethodsCW;
 using static System.Char;
 using System.Reflection;
-
+using System.Diagnostics;
 
 
 namespace CodeWarsSolving
@@ -17,12 +17,13 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            List<string> a = Anagrams("abba", new List<string>(new string[] {"aaaa","abab", "acab"}));
+            List<string> a = Anagrams("xxxxx", new List<string>(new string[] { "xxxxx", "b", "c" }));
 
-            foreach(string v in a)
+            foreach (string v in a)
             {
                 Console.WriteLine(v);
             }
+
         }
     }
 }

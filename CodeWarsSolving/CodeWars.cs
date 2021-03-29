@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
 using CodeWarsSolving;
+using System.Diagnostics;
 using static System.Char;
 
 namespace Solving
@@ -255,10 +256,10 @@ namespace Solving
             
             int wrd = word.Sum(x => x);
             List<string> rez = new List<string>();
-
+           
             for(int i =0; i<words.Count; i++)
             {
-                if (wrd == words[i].Sum(x => x) && !rez.Contains(words[i])) rez.Add(words[i]);   
+                if ( wrd == words[i].Sum(x => x) && (!rez.Contains(words[i]) && word != words[i].ToString())) rez.Add(words[i]);   
             }
             return rez;
         }
