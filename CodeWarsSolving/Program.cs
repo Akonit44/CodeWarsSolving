@@ -17,7 +17,7 @@ namespace CodeWarsSolving
     {
         static void Main(string[] args)
         {
-            List<string> a = Anagrams("xxxxx", new List<string>(new string[] { "xxxxx", "b", "c" }));
+            List<string> a = Anagrams("xxxxx", new List<string>(new string[] { "dddddd", "b", "c" }));
 
             foreach (string v in a)
             {

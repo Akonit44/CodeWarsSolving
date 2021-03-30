@@ -259,7 +259,7 @@ namespace Solving
            
             for(int i =0; i<words.Count; i++)
             {
-                if ( wrd == words[i].Sum(x => x) && (!rez.Contains(words[i]) && word != words[i].ToString())) rez.Add(words[i]);   
+                if (word.Length == words[i].Length && wrd == words[i].Sum(x => x) && (!rez.Contains(words[i]) || word != words[i].ToString())) rez.Add(words[i]);   
             }
             return rez;
         }
