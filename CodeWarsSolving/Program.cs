@@ -9,22 +9,42 @@ using static Solving.MethodsCW;
 using static System.Char;
 using System.Reflection;
 using System.Diagnostics;
-using 
+using System.IO;
 
 
 namespace CodeWarsSolving
 {
     class Program
     {
+        static Random rnd = new Random();
         static void Main(string[] args)
         {
-            List<string> a = Anagrams("xxxxx", new List<string>(new string[] { "dddddd", "b", "c" }));
+            
+            const int Tests = 1000;
+            StreamWriter stream = new StreamWriter(@"D:\test.txt");
 
-            foreach (string v in a)
+            for (int i = 0; i < Tests; ++i)
             {
-                Console.WriteLine(v);
-            }
 
+                string word = generateWord();
+                List<string> words = new string[rnd.Next(3, 20)].Select(_ => rnd.Next(0, 2) == 0 ? String.Concat(word.OrderBy(__ => rnd.Next())) : generateWord()).ToList();
+
+                //List<string> expected = solution(word, words);
+                //List<string> actual = CodeWars.Anagrams(word, words);
+
+
+                //Assert.AreEqual(expected, actual);
+                stream.WriteLine("Test numer:{0}", i);
+                foreach (string wrd in words)
+                {
+                    stream.Write(wrd + " ");
+                }
+                
+
+            }
+            
         }
+        private static string generateWord() =>
+         String.Concat(new char[rnd.Next(2, 12)].Select(_ => (char)rnd.Next(97, 123)));
     }
 }
