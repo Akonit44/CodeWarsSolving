@@ -267,7 +267,7 @@ namespace Solving
         public static string Rgb(int r, int g, int b)
         {
             
-            return null;
+            return (Convert.ToString(r,16) + Convert.ToString(g,16) + Convert.ToString(b,16)).ToUpper();
         }
     }
 }
