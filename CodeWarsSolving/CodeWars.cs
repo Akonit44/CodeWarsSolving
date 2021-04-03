@@ -263,5 +263,11 @@ namespace Solving
             }
             return rez;
         }
+
+        public static string Rgb(int r, int g, int b)
+        {
+            
+            return null;
+        }
     }
 }

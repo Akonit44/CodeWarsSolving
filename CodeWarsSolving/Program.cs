@@ -19,29 +19,7 @@ namespace CodeWarsSolving
         static Random rnd = new Random();
         static void Main(string[] args)
         {
-            
-            const int Tests = 1000;
-            StreamWriter stream = new StreamWriter(@"D:\test.txt");
-
-            for (int i = 0; i < Tests; ++i)
-            {
-
-                string word = generateWord();
-                List<string> words = new string[rnd.Next(3, 20)].Select(_ => rnd.Next(0, 2) == 0 ? String.Concat(word.OrderBy(__ => rnd.Next())) : generateWord()).ToList();
-
-                //List<string> expected = solution(word, words);
-                //List<string> actual = CodeWars.Anagrams(word, words);
-
-
-                //Assert.AreEqual(expected, actual);
-                stream.WriteLine("Test numer:{0}", i);
-                foreach (string wrd in words)
-                {
-                    stream.Write(wrd + " ");
-                }
-                
-
-            }
+            Console.WriteLine(Convert.ToString(255, 16));
             
         }
         private static string generateWord() =>
