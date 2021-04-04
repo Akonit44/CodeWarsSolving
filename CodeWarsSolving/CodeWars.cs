@@ -266,8 +266,13 @@ namespace Solving
 
         public static string Rgb(int r, int g, int b)
         {
-            
-            return (Convert.ToString(r,16) + Convert.ToString(g,16) + Convert.ToString(b,16)).ToUpper();
+            int CheckRet(int R_G_B_elem){
+                if (R_G_B_elem > 255) R_G_B_elem = 255;
+                return R_G_B_elem;
+            }
+            return (Convert.ToString(CheckRet(r),16) +
+                    Convert.ToString(CheckRet(g),16) + 
+                    Convert.ToString(CheckRet(b),16)).ToUpper();
         }
     }
 }
