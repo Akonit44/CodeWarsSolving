@@ -19,7 +19,8 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            Console.WriteLine(Rgb(148, 0, 211));
+            // Console.WriteLine(Rgb(148, 1, 211));
+            Console.WriteLine(new string('D',10));
         }
        
     }

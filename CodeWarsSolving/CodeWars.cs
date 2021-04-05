@@ -266,6 +266,8 @@ namespace Solving
 
         public static string Rgb(int r, int g, int b)
         {
+            //Как насчет разбить получившиеся три строки на один символьный массив
+            //или список для его модификации и передачи в конструктор новой строки???)))
             int CheckRet(int R_G_B_elem){
                 if (R_G_B_elem > 255) R_G_B_elem = 255;
                 return R_G_B_elem;
