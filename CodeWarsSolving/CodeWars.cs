@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using CodeWarsSolving;
 using System.Diagnostics;
 using static System.Char;
+using System.Data.Common;
+using System.Data;
 
 namespace Solving
 {
@@ -268,13 +270,21 @@ namespace Solving
         {
             //Как насчет разбить получившиеся три строки на один символьный массив
             //или список для его модификации и передачи в конструктор новой строки???)))
-            int CheckRet(int R_G_B_elem){
+            char[] ch_mass = CheckRet(r).ToCharArray();
+
+            string CheckRet(int R_G_B_elem)
+            {
+
                 if (R_G_B_elem > 255) R_G_B_elem = 255;
-                return R_G_B_elem;
+                else if (R_G_B_elem < 0) R_G_B_elem = 0;
+                string to_check = Convert.ToString(R_G_B_elem, 16);
+                to_check = (to_check.Length == 2) ? to_check : (to_check.Length == 1) ? "0" + to_check : to_check; 
+
+                return to_check.ToUpper();
+
             }
-            return (Convert.ToString(CheckRet(r),16) +
-                    Convert.ToString(CheckRet(g),16) + 
-                    Convert.ToString(CheckRet(b),16)).ToUpper();
+
+            return CheckRet(r)+CheckRet(g)+CheckRet(b);
         }
     }
 }
