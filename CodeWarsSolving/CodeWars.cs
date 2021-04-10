@@ -286,5 +286,16 @@ namespace Solving
 
             return CheckRet(r)+CheckRet(g)+CheckRet(b);
         }
+
+        public static int ParseInt(string s)
+        {
+            string[] mass = s.Split(' ');
+
+            switch (mass)
+            {
+                case
+            }
+            return 0;
+        }
     }
 }

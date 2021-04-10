@@ -19,7 +19,7 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            Console.WriteLine(Rgb(1, -20, 344));
+            Console.WriteLine(ParseInt("one thousand"));
            
         }
        
