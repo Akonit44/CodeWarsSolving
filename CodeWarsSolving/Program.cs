@@ -19,8 +19,23 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            Console.WriteLine(ParseInt("one thousand"));
-           
+            string input = ")))";
+            var linq = input.Where(x => x == ')');
+
+            bool rez = false;
+            for(int i =0; i<input.Length;i++)
+            {
+                 
+                if ((input[i] != '(' || input[i] != ')') && input[0] != ')' && input[input.Length-1] !=')') { rez = false; break; }
+
+                else rez = true;
+            }
+
+            foreach(var ch in linq)
+            {
+                Console.WriteLine(ch);
+            }
+            Console.WriteLine(linq.ToArray().Length);
         }
        
     }

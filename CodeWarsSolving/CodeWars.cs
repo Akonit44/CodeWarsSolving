@@ -286,7 +286,11 @@ namespace Solving
 
             return CheckRet(r)+CheckRet(g)+CheckRet(b);
         }
-
+        /// <summary>
+        /// Не решил(. 4 куя как-никак
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static int ParseInt(string s)
         {
             string[] mass = s.Split(' ');
