@@ -290,12 +290,19 @@ namespace Solving
         public static int ParseInt(string s)
         {
             string[] mass = s.Split(' ');
-
-            switch (mass)
+            int rez = 0;
+            int coff = 1;
+            
+            foreach(string word in mass) { 
+            switch (word)
             {
-                case
+                    case "one":
+                        rez += 1;
+                        break;
+
             }
-            return 0;
+            }
+            return rez;
         }
     }
 }
