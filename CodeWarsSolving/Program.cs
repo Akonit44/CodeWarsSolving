@@ -19,8 +19,8 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            string input = ")))";
-            var linq = input.Where(x => x == ')');
+            string input = ")))(((";
+            bool linq = input.Where(x => x == ')').ToArray().Length == input.Where(y => y =='(').ToArray().Length;
 
             bool rez = false;
             for(int i =0; i<input.Length;i++)
@@ -31,11 +31,8 @@ namespace CodeWarsSolving
                 else rez = true;
             }
 
-            foreach(var ch in linq)
-            {
-                Console.WriteLine(ch);
-            }
-            Console.WriteLine(linq.ToArray().Length);
+          
+            Console.WriteLine(linq);
         }
        
     }
