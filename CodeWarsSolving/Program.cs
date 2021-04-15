@@ -19,20 +19,34 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            string input = ")))(((";
-            bool linq = input.Where(x => x == ')').ToArray().Length == input.Where(y => y =='(').ToArray().Length;
+            string input = "((()))";
+            //bool linq = input.Where(x => x == ')').ToArray().Length == input.Where(y => y =='(').ToArray().Length;
 
+            //bool rez = false;
+            //for(int i =0; i<input.Length;i++)
+            //{
+
+            //    if ((input[i] != '(' || input[i] != ')') && input[0] != ')' && input[input.Length-1] !=')') { rez = false; break; }
+
+            //    else rez = true;
+            //}
             bool rez = false;
-            for(int i =0; i<input.Length;i++)
+            for(int i = 0; i < input.Length; i++)
             {
-                 
-                if ((input[i] != '(' || input[i] != ')') && input[0] != ')' && input[input.Length-1] !=')') { rez = false; break; }
 
-                else rez = true;
+                for(int j = 0; j < input.Length; j++)
+                {
+                    if (input[i] == '(' & j > i & input[j] == ')')
+                    {
+                        rez = true;
+                    }
+                    else { rez = false;}
+                }
             }
 
+
           
-            Console.WriteLine(linq);
+            Console.WriteLine(rez);
         }
        
     }
