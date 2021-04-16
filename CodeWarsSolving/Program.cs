@@ -33,14 +33,14 @@ namespace CodeWarsSolving
             bool rez = false;
             for(int i = 0; i < input.Length; i++)
             {
-
-                for(int j = 0; j < input.Length; j++)
+                for(int j = i; j < input.Length; j++)
                 {
-                    if (input[i] == '(' & j > i & input[j] == ')')
+                    if (input[i] == '(' && j > i && input[j] == ')')
                     {
+                        Console.WriteLine("YES");
                         rez = true;
                     }
-                    else { rez = false;}
+                    else { rez = rez; }
                 }
             }
 
