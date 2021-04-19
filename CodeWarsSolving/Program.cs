@@ -19,35 +19,34 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            string input = "((()))";
-            //bool linq = input.Where(x => x == ')').ToArray().Length == input.Where(y => y =='(').ToArray().Length;
+            string input = "((()()))";
+            Console.Write(SkobkaDA(input));
+            
+            
+        }
 
-            //bool rez = false;
-            //for(int i =0; i<input.Length;i++)
-            //{
-
-            //    if ((input[i] != '(' || input[i] != ')') && input[0] != ')' && input[input.Length-1] !=')') { rez = false; break; }
-
-            //    else rez = true;
-            //}
+        public static bool SkobkaDA(string input)
+        {
+            
+            int i = 0, j = 1;
             bool rez = false;
-            for(int i = 0; i < input.Length; i++)
+            while (j < input.Length)
             {
-                for(int j = i; j < input.Length; j++)
+                if (input[i] == '(')
                 {
-                    if (input[i] == '(' && j > i && input[j] == ')')
+                    
+                    if (input[j] == ')')
                     {
-                        Console.WriteLine("YES");
                         rez = true;
+                        i++;
                     }
-                    else { rez = rez; }
+                    j++;
                 }
             }
 
-
-          
-            Console.WriteLine(rez);
+            return rez;
         }
+
        
     }
 }
