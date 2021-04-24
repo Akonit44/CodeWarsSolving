@@ -19,8 +19,8 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            string input = "(()()))";
-            Console.Write(SkobkaDA(input));
+            string input = "((())())";
+            Console.WriteLine(SkobkaDA(input));
             
             
         }
@@ -30,27 +30,23 @@ namespace CodeWarsSolving
             
             int i = 0, j = 1;
             bool rez = false;
-            while (i < input.Length && input[0] == '(' && input.Length%2 == 0)
+            while (i < input.Length && input[0] == '(' && input.Length % 2 == 0)
             {
-                if (input[i] == '(')
-                {
-                    while (j < input.Length)
-                    {
+                if (input[i] == '('){
+                    while (j < input.Length) {
 
-                        if (input[j] == ')')
-                        {
+                        if (input[j] == ')') {
                             rez = true;
-                            i++;
+                            j++;
                             break;
                         }
-
                         j++;
                     }
 
                 }
+                if (j == input.Length - 1 && input[j] != ')') return rez = false;
                 else i++;
             }
-
             return rez;
         }
 
