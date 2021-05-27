@@ -20,8 +20,8 @@ namespace CodeWarsSolving
         static void Main(string[] args)
         {
             string input = "((())())";
-            Console.WriteLine(SkobkaDA(input));
-            
+            //Console.WriteLine(SkobkaDA(input));
+            Console.Write("AAAAAAAAAAAAAAAAAA");
             
         }
 
