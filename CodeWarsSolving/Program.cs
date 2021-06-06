@@ -19,12 +19,20 @@ namespace CodeWarsSolving
        
         static void Main(string[] args)
         {
-            string input = "((())())";
-            //Console.WriteLine(SkobkaDA(input));
-            Console.Write("AAAAAAAAAAAAAAAAAA");
+            Console.WriteLine(IsPalindrom("asaad","daasa"));
             
         }
 
+        public static bool IsPalindrom(string candidate1, string candidate2)
+        {
+            char[] a, b;
+            //bool isPal = false;
+            Array.Sort(a = candidate1.ToCharArray());
+            Array.Sort(b = candidate2.ToCharArray());
+            candidate1 = new string(a); 
+            candidate2 = new string(b);
+            return candidate1 == candidate2;
+        }
         public static bool SkobkaDA(string input)
         {
             
@@ -50,6 +58,27 @@ namespace CodeWarsSolving
             return rez;
         }
 
-       
+        public static bool isNotRepeat(string toTest)
+        {
+            bool rez = false;
+            for (int i = 0; i < toTest.Length; i++)
+            {
+                for (int j = i+1; j < toTest.Length; j++)
+                {
+                    rez = toTest[i] == toTest[j];
+                    if (rez)
+                    {
+                        return false;
+                    }
+                }
+            }
+                     return true;
+        }
+
+        public static string ChangeSpace(string input)
+        {
+            Regex regex = new Regex(@"\s+");
+            return regex.Replace(input,"%20");
+        }
     }
 }
