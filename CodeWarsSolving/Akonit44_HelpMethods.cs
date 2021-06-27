@@ -16,6 +16,17 @@ namespace CodeWarsSolving
             }
             Console.WriteLine();
         }
+        public static void showMass<T>(T[,] massArg)
+        {
+            for(int i =0; i < massArg.GetLength(0); i++) 
+            {
+                for (int j =0; j< massArg.GetLength(1); j++)
+                {
+                    Console.Write($"{massArg[i, j]} ");
+                }
+                Console.WriteLine();
+            }
+        }
         public static void showMass<T>(List<T> list)
         {
             

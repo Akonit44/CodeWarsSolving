@@ -16,11 +16,16 @@ namespace CodeWarsSolving
 {
     class Program
     {
-       
         static void Main(string[] args)
         {
-            Console.WriteLine(IsPalindrom("asaad","daasa"));
-            
+            // Console.WriteLine(IsPalindrom("asaad","daasa"));
+            int[,] mass_2 = new int[3, 2];
+            Console.WriteLine(mass_2.GetLength(1));
+            for (int i = 0;i< mass_2.GetLength(1);i++)
+            {
+                mass_2[1, 1] = 1;
+            }
+            Akonit44_HelpMethods.showMass(mass_2);
         }
 
         public static bool IsPalindrom(string candidate1, string candidate2)
@@ -57,7 +62,6 @@ namespace CodeWarsSolving
             }
             return rez;
         }
-
         public static bool isNotRepeat(string toTest)
         {
             bool rez = false;
@@ -74,7 +78,6 @@ namespace CodeWarsSolving
             }
                      return true;
         }
-
         public static string ChangeSpace(string input)
         {
             Regex regex = new Regex(@"\s+");
